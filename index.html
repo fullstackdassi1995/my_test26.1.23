@@ -93,7 +93,7 @@
         rating_of_the_place: '2/5' ,
         int_rank: 2,
         num_price: 3990,
-        options: '<button onclick="delete1(1)" class="btn btn-danger" >DELETE</button>  <button onclick="buy1(0)" id="0" class="btn btn-primary">BUY</button>'},
+        options: '<button onclick="delete1(0)" class="btn btn-danger" >DELETE</button>  <button onclick="buy1(0)" id="0" class="btn btn-primary">BUY</button>'},
     {
         icon_or_image: '<a href="https://img.zap.co.il/pics/6/5/8/2/63312856c.gif" target="_blank"><img src="https://img.zap.co.il/pics/2/4/3/1/44601342c.gif" width="120" height="110""></a>',
         name_of_the_store: 'Shupersal online' ,
@@ -103,7 +103,7 @@
         int_rank: 4,
         num_price: 3499,
         rating_of_the_place:'4/5' ,
-        options:'<button onclick="delete1(2)"  class="btn btn-danger" >DELETE</button> <button onclick="buy1(1)" id="1" class="btn btn-primary">BUY</button>'
+        options:'<button onclick="delete1(1)"  class="btn btn-danger" >DELETE</button> <button onclick="buy1(1)" id="1" class="btn btn-primary">BUY</button>'
     },
         {
         icon_or_image: '<a href="https://img.zap.co.il/pics/6/5/8/2/63312856c.gif" target="_blank"><img src="https://img.zap.co.il/pics/2/4/3/1/44601342c.gif" width="120" height="110""></a>',
@@ -114,7 +114,7 @@
         link_of_the_store: '<a href="https://www.buy-buy.co.il/" target="_blank"><img src="https://img.zap.co.il/pics/imgs/nsite/newui/newssite-889.gif"></a>' ,
         int_rank: 5,
         rating_of_the_place: '5/5' ,
-        options: '<button onclick="delete1(3)"  class="btn btn-danger" >DELETE</button> <button onclick="buy1(2)" id="2" class="btn btn-primary">BUY</button>'
+        options: '<button onclick="delete1(2)"  class="btn btn-danger" >DELETE</button> <button onclick="buy1(2)" id="2" class="btn btn-primary">BUY</button>'
     },
         {
         icon_or_image: '<a href="https://img.zap.co.il/pics/6/5/8/2/63312856c.gif" target="_blank"><img src="https://img.zap.co.il/pics/2/4/3/1/44601342c.gif" width="120" height="110""></a>',
@@ -125,7 +125,7 @@
         link_of_the_store: '<a href="https://www.dailysale.co.il/" target="_blank"><img src="https://img.zap.co.il/pics/imgs/nsite/newui/newssite-185.gif"></a>' ,
         int_rank: 1,
         rating_of_the_place: '1/5' ,
-        options:'<button onclick="delete1(4)"  class="btn btn-danger" >DELETE</button> <button onclick="buy1(3)" id="3" class="btn btn-primary">BUY</button>'
+        options:'<button onclick="delete1(3)"  class="btn btn-danger" >DELETE</button> <button onclick="buy1(3)" id="3" class="btn btn-primary">BUY</button>'
     }];
 
     console.log(tv);
@@ -150,9 +150,9 @@
     });
     document.getElementById('data').innerHTML = tb
     }
-
-    function lucrative(){
-    const new_table = tv.sort( (tv_a, tv_b) => {
+    
+    function my_sort(){
+        tv.sort( (tv_a, tv_b) => {
         if (tv_a.int_rank > tv_b.int_rank ){
             return 1
         }
@@ -166,6 +166,10 @@
         return -1
         }
     })
+    return tv
+    }
+
+    function lucrative(){
     console.log(tv[tv.length-1]);
     return tv[tv.length-1]
 }
@@ -210,10 +214,8 @@
     })
     }
 
-    function delete1(x){
-    delete tv[x-1];
-    run_me()
-    change_color() 
+    function delete1(x ){
+       document.getElementById(`row${x+1}`).remove()
     }
 
     function star(){
@@ -245,29 +247,9 @@
    
     run_me()
     change_color()
-    lucrative()
+    lucrative(tv)
     star()
     average(tv)
-
-
-    // tv.forEach(t => {console.log(`RANK ${t.int_rank} PRICE ${t.num_price}`)})
-
-   
-
-    // function change_color(){
-    //     tv.forEach(i => {
-    //         if (i.int_rank >= 4){
-    //             document.getElementById(`row${i}`).style.background = 'rgb(61, 190, 61)'
-    //         }
-    //         if (i.int_rank <= 1){
-    //             document.getElementById(`row${i}`).style.background = 'red'
-    //         }
-    //     })
-    // }
-    
-
-
-
 
     </script>
 </body>
