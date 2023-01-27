@@ -132,7 +132,7 @@
 
     function run_me() {
     let tb = ""
-    let id_row = 0
+    let id_row = 1
     let n = 1
     tv.forEach(e => {
         tb += `<tr class="num" id= "row${id_row}">
@@ -151,7 +151,7 @@
     document.getElementById('data').innerHTML = tb
     }
 
-    function my_sort(){
+    function lucrative(){
     const new_table = tv.sort( (tv_a, tv_b) => {
         if (tv_a.int_rank > tv_b.int_rank ){
             return 1
@@ -185,11 +185,9 @@
 
     function average(arr){
         let total = 0
-        let price = 0
-        for(let i = 1 ; i < table.rows.length ; i++){
-            price = table.rows[i].cells[4].innerHTML.replace(/₪/g,'');
-            total += parseFloat(price.replace(/,/g,''));
-        };
+        tv.forEach(t => {
+        total +=  t.num_price
+        })
         let average1 = total / arr.length
         console.log(average1);
         return average1
@@ -205,7 +203,7 @@
         <tr> <td class="col-sm-3">Credit Card number : </td>
         <td class="col-sm-2"><input type="number" id="login" class="swal2-input" placeholder="xxxx - xxxx - xxxx - xxxx:"></td> </tr>
         <tr> <td class="col-sm-3"> Date of expiration</td>
-        <td class="col-sm-3">${new Date(2)}</td> </tr>   
+        <td class="col-sm-3">${Math.floor(Math.random()*10+2023) }</td> </tr>   
             `,
     confirmButtonText: 'Send',
     customClass: 'sweetalert-lg'
@@ -247,7 +245,7 @@
    
     run_me()
     change_color()
-    my_sort()
+    lucrative()
     star()
     average(tv)
 
@@ -268,38 +266,6 @@
     // }
     
 
-
-
-    
-   
-   // better(tv)
-    
-
-    
-
-//     function better(arr){
-//         const low_price = []
-//         for(let i = 1 ; i < table.rows.length ; i++){
-//             price = table.rows[i].cells[4].innerHTML.replace(/₪/g,'');
-//             low_price.push ( parseFloat(price.replace(/,/g,'')));
-//         }
-//         let d = (Math.min(...low_price));
-//         good(d)
-//     }
-
-//     better(tv)
-
-//     function good(x){
-//         for(let i = 1 ; i < table.rows.length ; i++){
-//             let rating =  parseFloat(document.getElementById(`ra${i}`).innerHTML.replace(/,/g,''));
-//             price = table.rows[i].cells[4].innerHTML.replace(/₪/g,'');
-//             price =  parseFloat(price.replace(/,/g,''));
-//             if (rating >= 4 && price == x){
-//                 console.log(table.rows[i]);
-//                 return table.rows[i]
-//             } 
-//         }
-// }
 
 
 
