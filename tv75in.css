@@ -1,0 +1,28 @@
+@import 'https://cdn.jsdelivr.net/npm/@sweetalert2/themes/dark/dark.css';
+table {
+    margin-left: 10%;
+    margin-top: 20px;
+    font-size: large;
+  }
+  .sweetalert-lg {
+    width: 900px;
+    margin: 0;
+  }
+  .swal2-popup {
+    font-size: 1rem !important;
+  }
+  .swal2-container {
+    zoom: 1;
+  }
+  th {
+    font-family: cursive;
+  }
+  td {
+    font-family: cursive;
+  }
+  .checked {
+    color: orange;
+  }
+  h1 {
+    margin-left: 10%;
+  }
