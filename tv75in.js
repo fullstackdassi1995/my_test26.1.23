@@ -1,4 +1,4 @@
-test_data = {
+const test_data = {
   table: document.getElementById("tv"),
   highColor: "rgb(61, 190, 61)",
   lowColor: "red",
@@ -90,11 +90,7 @@ function run_me(tv) {
       <td>${e.price}</td>
       <td>${e.link_of_the_store}</td>
       <td id="ra${id_row}">${e.rating_of_the_place} </td>
-      <td>${
-        e.options
-      } <button onclick="delete1(${id_row})"  class="btn btn-danger" >DELETE</button> <button onclick="buy1(${
-      (id_row, tv)
-    })" id="${(id_row, tv)}" class="btn btn-primary">BUY</button></td>
+      <td>${e.options} <button onclick="delete1(${id_row})"  class="btn btn-danger" >DELETE</button> <button onclick="buy1(${id_row})" id="${id_row}" class="btn btn-primary">BUY</button></td>
       </tr>`;
     e.id = id_row;
     id_row++;
@@ -144,13 +140,13 @@ function average(arr) {
   return average1;
 }
 
-function buy1(x, tv) {
+function buy1(x) {
   Swal.fire({
     title: "To buy",
     html: `<table  class="table table-bordered" > <tr> <td class="col-sm-3"> Name of the store : </td>
-      <td class="col-sm-3">${tv[x].name_of_the_store}</td> </tr>
+      <td class="col-sm-3">${test_data.tv[x].name_of_the_store}</td> </tr>
       <tr> <td>Price:</td>
-      <td class="col-sm-3" >${tv[x].price}</td> </tr>
+      <td class="col-sm-3" >${test_data.tv[x].price}</td> </tr>
       <tr> <td class="col-sm-3">Credit Card number : </td>
       <td class="col-sm-2"><input type="number" id="login" class="swal2-input" placeholder="xxxx - xxxx - xxxx - xxxx:"></td> </tr>
       <tr> <td class="col-sm-3"> Date of expiration</td>
