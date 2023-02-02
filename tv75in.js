@@ -164,8 +164,7 @@ function star(tv) {
   const chackedOn = '<span class="fa fa-star checked">';
   const chackedOff = '<span class="fa fa-star">';
   tv.forEach((e) => {
-    let my_star = e.int_rank;
-    switch (my_star) {
+    switch (e.int_rank) {
       case 1:
         e.rating_of_the_place +=
           chackedOff + chackedOff + chackedOff + chackedOff + chackedOn;
