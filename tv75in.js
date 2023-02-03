@@ -1,4 +1,5 @@
 const test_data = {
+  title:"Result for : TV screen 75 inch:",
   table: document.getElementById("tv"),
   highColor: "rgb(61, 190, 61)",
   lowColor: "red",
@@ -92,6 +93,7 @@ function run_me(tv) {
       <td id="ra${id_row}">${e.rating_of_the_place} </td>
       <td>${e.options} <button onclick="delete1(${id_row})"  class="btn btn-danger" >DELETE</button> <button onclick="buy1(${id_row})" id="${id_row}" class="btn btn-primary">BUY</button></td>
       </tr>`;
+    document.getElementById('title').innerHTML = test_data.title
     e.id = id_row;
     id_row++;
     n++;
