@@ -71,10 +71,11 @@ const test_data = {
 
 my_sort(test_data.tv);
 star(test_data.tv);
-run_me(test_data.tv);
-change_color(test_data.tv);
 lucrative(test_data.tv);
 average(test_data.tv);
+run_me(test_data.tv);
+change_color(test_data.tv);
+
 
 console.log(test_data.tv);
 
@@ -163,34 +164,16 @@ function delete1(x) {
 }
 
 function star(tv) {
-  const chackedOn = '<span class="fa fa-star checked">';
-  const chackedOff = '<span class="fa fa-star">';
-  tv.forEach((e) => {
-    switch (e.int_rank) {
-      case 1:
-        e.rating_of_the_place +=
-          chackedOff + chackedOff + chackedOff + chackedOff + chackedOn;
-        break;
-      case 2:
-        e.rating_of_the_place +=
-          chackedOff + chackedOff + chackedOff + chackedOn + chackedOn;
-        break;
-      case 3:
-        e.rating_of_the_place +=
-          chackedOff + chackedOff + chackedOn + chackedOn + chackedOn;
-        break;
-      case 4:
-        e.rating_of_the_place +=
-          chackedOff + chackedOn + chackedOn + chackedOn + chackedOn;
-        break;
-      case 5:
-        e.rating_of_the_place +=
-          chackedOn + chackedOn + chackedOn + chackedOn + chackedOn;
-        break;
-      case 0:
-        e.rating_of_the_place +=
-          chackedOff + chackedOff + chackedOff + chackedOff + chackedOff;
-        break;
+  const starOn = '<span class="fa fa-star checked">';
+  const starOff = '<span class="fa fa-star">';
+  tv.forEach((k) => {
+    let on = k.int_rank;
+    let off = 5 - on;
+    for (let i = 0; i < off; i++){
+      k.rating_of_the_place += starOff
+    }
+    for (let i = 0; i < on; i++){
+      k.rating_of_the_place += starOn
     }
   });
 }
